@@ -14,6 +14,7 @@ pub fn sort(sliced: []const i32, allocator: std.mem.Allocator) ![]const i32 {
 
     return merge(sortedSliceA, sortedSliceB, allocator);
 }
+// doing allocating memory instead of in place to test zig memory allocator
 pub fn merge(sideA: []const i32, sideB: []const i32, allocator: std.mem.Allocator) ![]const i32 {
     const final = try allocator.alloc(i32, sideA.len + sideB.len);
 
